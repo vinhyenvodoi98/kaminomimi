@@ -12,11 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-kinesis": "^3.40.0",
+    "aws-kcl": "^2.1.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "http": "^0.0.1-security",
     "morgan": "^1.10.0",
+    "multer": "^1.4.3",
     "needle": "^3.0.0",
     "query-string": "^7.0.1",
     "socket.io": "^4.3.1"
