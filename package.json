@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-kinesis": "^3.40.0",
+    "@aws-sdk/client-lambda": "^3.40.0",
     "aws-kcl": "^2.1.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

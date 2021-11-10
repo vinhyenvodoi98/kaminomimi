@@ -5,12 +5,14 @@ services:
     container_name: 'localstack_main'
     image: localstack/localstack:latest
     environment:
-      - SERVICES=dynamodb,kinesis
+      - SERVICES=dynamodb,lambda,kinesis
+      - LAMBDA_EXECUTOR=docker_reuse
       - DOCKER_HOST=unix:///var/run/docker.sock
       - DEFAULT_REGION=ap-southeast-2
       - DEBUG=1
       - DATA_DIR=/tmp/localstack/data
       - PORT_WEB_UI=8080
+      - LAMBDA_DOCKER_NETWORK=localstack-tutorial
       - KINESIS_PROVIDER=kinesalite
     ports:
       - '53:53'
