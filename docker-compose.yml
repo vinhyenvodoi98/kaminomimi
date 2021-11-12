@@ -26,7 +26,25 @@ services:
       - localstack_data:/tmp/localstack/data
     networks:
       default:
-
+  postgres:
+    image: postgres:12-alpine
+    container_name: 'postgres'
+    restart: always
+    environment:
+      POSTGRES_DB: kaminomimi
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: '123456'
+    tty: true
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db_data/postgres:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    container_name: 'adminer'
+    restart: always
+    ports:
+      - 8082:8080
 volumes:
   localstack_data:
 networks:
