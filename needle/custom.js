@@ -63,7 +63,6 @@ function streamTweets(socket) {
   stream.on('data', (data) => {
     try {
       const json = JSON.parse(data);
-      // console.log(json);
       socket.emit('tweet', json);
     } catch (error) {}
   });

@@ -34,7 +34,6 @@ router.post('/trigger', async (req, res) => {
         StreamName: 'caughtDogs',
       })
     );
-    console.log({ data });
   } catch (error) {
     console.log({ error });
     // const { requestId, cfId, extendedRequestId } = error.$metadata;

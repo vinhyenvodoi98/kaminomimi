@@ -5,7 +5,7 @@ services:
     container_name: 'localstack_main'
     image: localstack/localstack:latest
     environment:
-      - SERVICES=dynamodb,lambda,kinesis
+      - SERVICES=lambda,kinesis
       - LAMBDA_EXECUTOR=docker_reuse
       - DOCKER_HOST=unix:///var/run/docker.sock
       - DEFAULT_REGION=ap-southeast-2
