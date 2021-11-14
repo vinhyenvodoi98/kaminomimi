@@ -25,21 +25,21 @@ resource "aws_kinesis_stream" "test_stream" {
 }
 
 // LAMBDA FUNCTIONS
-resource "aws_lambda_function" "test_lambda" {
-  function_name = "test_lambda"
-  filename      = "testLambda.zip"
+resource "aws_lambda_function" "data_processing" {
+  function_name = "data_processing"
+  filename      = "data_processing.zip"
   handler       = "main.handler"
   role          = "fake_role"
-  source_code_hash = filebase64sha256("testLambda.zip")
+  source_code_hash = filebase64sha256("data_processing.zip")
   runtime       = "nodejs14.x"
   timeout       = 10
   memory_size   = 256
 }
 
 // LAMBDA TRIGGERS
-resource "aws_lambda_event_source_mapping" "test_lambda_trigger" {
+resource "aws_lambda_event_source_mapping" "data_processing_trigger" {
   event_source_arn              = aws_kinesis_stream.test_stream.arn
-  function_name                 = "test_lambda"
+  function_name                 = "data_processing"
   batch_size                    = 1
   starting_position             = "LATEST"
   enabled                       = true

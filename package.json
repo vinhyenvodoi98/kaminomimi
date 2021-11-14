@@ -6,6 +6,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js",
     "migrate": "knex migrate:latest",
+    "zip": "zip -r9 ./data_processing.zip ./lambda/data_processing",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
