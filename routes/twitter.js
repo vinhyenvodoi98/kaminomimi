@@ -31,7 +31,7 @@ router.post('/trigger', async (req, res) => {
     const data = await client.send(
       new PutRecordsCommand({
         Records: record,
-        StreamName: 'caughtDogs',
+        StreamName: 'caughtTweets',
       })
     );
   } catch (error) {

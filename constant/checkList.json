@@ -1,62 +1,82 @@
 [
   {
-    "value": "Bitcoin"
+    "value": "Bitcoin",
+    "tag": "btc"
   },
   {
-    "value": "btc"
+    "value": "btc",
+    "tag": "btc"
   },
   {
-    "value": "Ethereum"
+    "value": "Ethereum",
+    "tag": "eth"
   },
   {
-    "value": "eth"
+    "value": "eth",
+    "tag": "eth"
   },
   {
-    "value": "Binance Coin"
+    "value": "Binance Coin",
+    "tag": "bnb"
   },
   {
-    "value": "bnb"
+    "value": "bnb",
+    "tag": "bnb"
   },
   {
-    "value": "Tether"
+    "value": "Tether",
+    "tag": "usdt"
   },
   {
-    "value": "usdt"
+    "value": "usdt",
+    "tag": "usdt"
   },
   {
-    "value": "Solana"
+    "value": "Solana",
+    "tag": "sol"
   },
   {
-    "value": "sol"
+    "value": "sol",
+    "tag": "sol"
   },
   {
-    "value": "Cardano"
+    "value": "Cardano",
+    "tag": "ada"
   },
   {
-    "value": "ada"
+    "value": "ada",
+    "tag": "ada"
   },
   {
-    "value": "XRP"
+    "value": "XRP",
+    "tag": "xrp"
   },
   {
-    "value": "xrp"
+    "value": "xrp",
+    "tag": "xrp"
   },
   {
-    "value": "Polkadot"
+    "value": "Polkadot",
+    "tag": "dot"
   },
   {
-    "value": "dot"
+    "value": "dot",
+    "tag": "dot"
   },
   {
-    "value": "Dogecoin"
+    "value": "Dogecoin",
+    "tag": "doge"
   },
   {
-    "value": "doge"
+    "value": "doge",
+    "tag": "doge"
   },
   {
-    "value": "USD Coin"
+    "value": "USD Coin",
+    "tag": "usdc"
   },
   {
-    "value": "usdc"
+    "value": "usdc",
+    "tag": "usdc"
   }
 ]

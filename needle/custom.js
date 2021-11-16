@@ -2,6 +2,7 @@ const { rulesURL, streamURL, rules } = require('../constant/twitterUri');
 require('dotenv').config();
 const TOKEN = process.env.TWITTER_BEARER_TOKEN;
 const needle = require('needle');
+const { pushKinesis } = require('../ultis/kinesis');
 
 // Get stream rules
 async function getRules() {
@@ -63,6 +64,7 @@ function streamTweets(socket) {
   stream.on('data', (data) => {
     try {
       const json = JSON.parse(data);
+      pushKinesis(data, 'caughtTweets');
       socket.emit('tweet', json);
     } catch (error) {}
   });
