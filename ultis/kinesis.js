@@ -3,11 +3,11 @@ const REGION = 'ap-northeast-1';
 
 const client = new KinesisClient({
   region: REGION,
-  //   endpoint: 'http://localhost:4566',
-  //   credentials: {
-  //     accessKeyId: proce,
-  //     secretAccessKey: 'fake',
-  //   },
+  // endpoint: 'http://localhost:4566',
+  // credentials: {
+  //   accessKeyId: proce,
+  //   secretAccessKey: 'fake',
+  // },
 });
 
 const pushKinesis = async (data, streamName) => {

@@ -4,3 +4,4 @@ yarn-error.log
 *terraform*
 *.zip
 db_data
+variables.tf
