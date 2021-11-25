@@ -3,7 +3,7 @@ const helmet = require('helmet');
 const logger = require('morgan');
 const multer = require('multer');
 const WebSockets = require('./socket/socket');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 80;
 const upload = multer();
 
 // import routes
