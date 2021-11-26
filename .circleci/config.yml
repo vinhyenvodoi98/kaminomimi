@@ -13,6 +13,7 @@ jobs:
     # deployというjobを行うためにcircleciのdocker内で動作させるコマンド
     steps:
       - checkout
+      - setup_remote_docker
       - run: npm install
       - save_cache:
           paths:
@@ -25,9 +26,6 @@ jobs:
           command: |
             npm install
             npm run cdk deploy
-      # - run:
-      #     name: Deploying
-      #     command: eb deploy [created-my-env-name]
 
 workflows:
   version: 2
@@ -38,4 +36,4 @@ workflows:
           filters:
             branches:
               only:
-                - circleci-project-setup
+                - main
