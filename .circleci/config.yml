@@ -18,13 +18,13 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      # - run:
-      #     name: Installing EB CLI
-      #     working_directory: /
-      #     command: |
-      #       sudo apt-get -y -qq update
-      #       sudo apt-get install python-pip python-dev build-essential
-      #       sudo pip install awsebcli --upgrade
+      # enable docker
+      - run:
+          name: build and deploy cdk
+          working_directory: ~/app/cdk
+          command: |
+            npm install
+            npm run cdk deploy
       # - run:
       #     name: Deploying
       #     command: eb deploy [created-my-env-name]
@@ -33,8 +33,9 @@ workflows:
   version: 2
   build:
     jobs:
+      # name of job
       - deploy:
           filters:
             branches:
               only:
-                - main
+                - circleci-project-setup
