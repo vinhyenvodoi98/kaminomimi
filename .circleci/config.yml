@@ -8,7 +8,7 @@ jobs:
 
     # circleciが建てるdocker imageの種類
     docker:
-      - image: circleci/node:14-slim
+      - image: circleci/node:14
 
     # deployというjobを行うためにcircleciのdocker内で動作させるコマンド
     steps:
