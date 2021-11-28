@@ -44,18 +44,21 @@ module.exports.handler = async (event) => {
   });
 
   try {
+    let date = new Date();
+    let dateForm = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     var queries = uniqueArray.map((rule) => {
       return upsert({
-        table: 'tweets',
-        createData: { tweet_keyword: rule.tag, number_mention: rule.count },
+        table: 'counters',
+        createData: { keyword: rule.tag, count: rule.count, date: dateForm },
         object: {
-          tweet_keyword: rule.tag,
-          number_mention: knex.raw(`tweets.number_mention + ${rule.count}`),
+          keyword: rule.tag,
+          count: knex.raw(`counters.count + ${rule.count}`),
+          date: knex.raw(`counters.date`),
         },
-        constraint: '(tweet_keyword)',
+        constraint: '(keyword, date)',
       });
     });
-    Promise.all(queries);
+    await Promise.all(queries);
     return event;
   } catch (error) {
     return error;
