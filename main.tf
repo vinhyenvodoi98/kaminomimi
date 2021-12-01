@@ -169,3 +169,12 @@ resource "aws_rds_cluster_instance" "aurora_cluster_instance" {
   publicly_accessible   = true
 }
 
+resource "aws_kms_key" "hoang_kaminomimi_project" {
+  description             = "deploy enviroment encrypt and decrypt"
+  deletion_window_in_days = 7
+}
+
+resource "aws_kms_alias" "hoang_kaminomimi_project_key_alias" {
+  name          = "alias/hoang-key-alias"
+  target_key_id = aws_kms_key.hoang_kaminomimi_project.key_id
+}

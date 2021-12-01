@@ -16,5 +16,8 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+# decrypt enviroment
+ENTRYPOINT [ "bash" ,"decrypt.sh" ]
+
 EXPOSE 80
 CMD [ "node", "app.js" ]

@@ -1,5 +1,6 @@
 *node_modules*
-.env
+/.env
+/lambda/*/.env
 yarn-error.log
 *terraform*
 *.zip
