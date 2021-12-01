@@ -46,7 +46,7 @@ class BonjourECS extends cdk.Stack {
 
 const app = new cdk.App();
 
-new BonjourECS(app, 'Bonjour', {
+new BonjourECS(app, 'NewBonjour', {
   env: {
     account: '394094555638',
     region: 'ap-northeast-1',
