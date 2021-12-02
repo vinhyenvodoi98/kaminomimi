@@ -93,7 +93,7 @@ data "aws_vpc" "main" {
 }
 
 data "aws_subnet" "kaminomimi_1" {
-  id         = "subnet-0ee4fae679b610260"
+  id         = "subnet-01a7b89982b5857ba"
 }
 
 data "aws_subnet" "kaminomimi_2" {
@@ -149,7 +149,7 @@ resource "aws_rds_cluster" "aurora_cluster" {
   master_username               = "kaminomimi"
   master_password               = var.aurora_password
   preferred_maintenance_window  = "wed:03:00-wed:04:00"
-  availability_zones            = ["ap-northeast-1c", "ap-northeast-1a", "ap-northeast-1d"]
+  availability_zones            = ["ap-northeast-1c", "ap-northeast-1d"]
   db_subnet_group_name          = aws_db_subnet_group.main.name
   vpc_security_group_ids        = [aws_security_group.rds.id]
   engine                        = "aurora-postgresql"

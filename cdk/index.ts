@@ -26,7 +26,7 @@ class BonjourECS extends cdk.Stack {
     const decryptedKey = kms.Key.fromKeyArn(
       this,
       'decryptedKey',
-      'arn:aws:kms:ap-northeast-1:394094555638:key/ba24f052-64ba-4036-848d-8c0f3fcf617c'
+      'arn:aws:kms:ap-northeast-1:394094555638:key/01de132b-a7e9-4a88-8bd0-4895687b2173'
     );
 
     // Instantiate ECS Service with just cluster and image
