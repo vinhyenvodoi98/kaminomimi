@@ -2,6 +2,7 @@ import ec2 = require('@aws-cdk/aws-ec2');
 import ecs = require('@aws-cdk/aws-ecs');
 import ecs_patterns = require('@aws-cdk/aws-ecs-patterns');
 import cdk = require('@aws-cdk/core');
+import kms = require('@aws-cdk/aws-kms');
 
 /**
  * The port range to open up for dynamic port mapping
@@ -22,8 +23,14 @@ class BonjourECS extends cdk.Stack {
     });
     const cluster = new ecs.Cluster(this, 'Ec2Cluster', { vpc });
 
+    const decryptedKey = kms.Key.fromKeyArn(
+      this,
+      'decryptedKey',
+      'arn:aws:kms:ap-northeast-1:394094555638:key/ba24f052-64ba-4036-848d-8c0f3fcf617c'
+    );
+
     // Instantiate ECS Service with just cluster and image
-    const loadBalancedFargateService = new ecs_patterns.NetworkLoadBalancedFargateService(
+    const loadBalancedFargateService = new ecs_patterns.ApplicationLoadBalancedFargateService(
       this,
       'Ec2Service',
       {
@@ -38,6 +45,8 @@ class BonjourECS extends cdk.Stack {
       }
     );
 
+    decryptedKey.grantDecrypt(loadBalancedFargateService.taskDefinition.taskRole);
+
     // Need target security group to allow all inbound traffic for
     // ephemeral port range (when host port is 0).
     loadBalancedFargateService.service.connections.allowFromAnyIpv4(EPHEMERAL_PORT_RANGE);
@@ -46,7 +55,7 @@ class BonjourECS extends cdk.Stack {
 
 const app = new cdk.App();
 
-new BonjourECS(app, 'NewBonjour', {
+new BonjourECS(app, 'TweetListener', {
   env: {
     account: '394094555638',
     region: 'ap-northeast-1',
